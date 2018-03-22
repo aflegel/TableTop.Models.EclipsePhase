@@ -8,7 +8,6 @@ namespace EclipsePhase.Data
     public partial class EclipsePhaseCharacterBuilderContext : DbContext
     {
         public virtual DbSet<Aptitude> Aptitude { get; set; }
-        public virtual DbSet<AtomPage> AtomPage { get; set; }
         public virtual DbSet<Background> Background { get; set; }
         public virtual DbSet<BackgroundBonusMalus> BackgroundBonusMalus { get; set; }
         public virtual DbSet<BackgroundTrait> BackgroundTrait { get; set; }
@@ -67,37 +66,19 @@ namespace EclipsePhase.Data
                     .HasMaxLength(100);
             });
 
-            modelBuilder.Entity<AtomPage>(entity =>
-            {
-                entity.HasKey(e => e.Name);
-
-                entity.Property(e => e.Name)
-                    .HasColumnName("name")
-                    .HasMaxLength(100)
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Page)
-                    .IsRequired()
-                    .HasColumnName("page")
-                    .HasMaxLength(100);
-            });
-
             modelBuilder.Entity<Background>(entity =>
             {
                 entity.Property(e => e.BackgroundId).HasColumnName("backgroundId");
 
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasColumnName("description");
+				entity.Property(e => e.Description)
+					.IsRequired();
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasColumnName("name")
                     .HasMaxLength(100);
 
                 entity.Property(e => e.Type)
                     .IsRequired()
-                    .HasColumnName("type")
                     .HasMaxLength(3);
             });
 

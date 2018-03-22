@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace EclipsePhase.Models
 {
+	/// <summary>
+	/// Bonus/Malus defines the plus or minus
+	/// </summary>
     public partial class BonusMalus
     {
         public string Name { get; set; }

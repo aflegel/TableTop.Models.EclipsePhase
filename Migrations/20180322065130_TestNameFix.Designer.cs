@@ -12,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 namespace EclipsePhase.Migrations
 {
     [DbContext(typeof(EclipsePhaseCharacterBuilderContext))]
-    partial class EclipsePhaseCharacterBuilderContextModelSnapshot : ModelSnapshot
+    [Migration("20180322065130_TestNameFix")]
+    partial class TestNameFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
